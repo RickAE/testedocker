@@ -1,0 +1,47 @@
+services:
+  frontend:
+    build: /BoraTrocarV3
+    ports:
+      - "4200:80"
+    depends_on:
+      - boratrocarbackend
+      - boratrocarcomentarios
+
+  boratrocarbackend:
+    build: /boraTrocaBackEnd
+    ports:
+      - "8090:8090"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: boratroca
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+    depends_on:
+      - mysql
+
+  boratrocarcomentarios:
+    build: /boraTrocarComentarios
+    ports:
+      - "8020:8020"
+    depends_on:
+      - mongo
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: boratroca
+      MYSQL_PASSWORD: root
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

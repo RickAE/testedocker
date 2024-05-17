@@ -1,0 +1,7 @@
+br\edu\fateccotia\boraTrocarComentarios\config\WebConfig.class
+br\edu\fateccotia\boraTrocarComentarios\security\CorsConfiguration.class
+br\edu\fateccotia\boraTrocarComentarios\model\Comentario.class
+br\edu\fateccotia\boraTrocarComentarios\repository\ComentarioRepository.class
+br\edu\fateccotia\boraTrocarComentarios\service\ComentarioService.class
+br\edu\fateccotia\boraTrocarComentarios\BoraTrocarComentariosApplication.class
+br\edu\fateccotia\boraTrocarComentarios\controller\ComentarioController.class
